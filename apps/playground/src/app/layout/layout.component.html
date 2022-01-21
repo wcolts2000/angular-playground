@@ -4,7 +4,7 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
 <!--    <mat-toolbar>Menu</mat-toolbar>-->
-    <div [ngClass]="(isTablet$ | async) ? 'tablet-logo' : 'desktop-logo'"><mat-icon color="primary">delete</mat-icon><p>design guru</p></div>
+    <div (click)="drawer.toggle()" [ngClass]="(isTablet$ | async) ? 'tablet-logo' : 'desktop-logo'"><mat-icon color="primary">delete</mat-icon><p>design guru</p></div>
     <mat-nav-list>
       <a mat-list-item href="#" [ngClass]="(isTablet$ | async) ? 'tablet': 'desktop'"><mat-icon color="primary">face</mat-icon><span>link 1</span></a>
       <a mat-list-item href="#" [ngClass]="(isTablet$ | async) ? 'tablet': 'desktop'"><mat-icon color="primary">face</mat-icon><span>link 2</span></a>
