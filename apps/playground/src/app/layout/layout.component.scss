@@ -1,0 +1,57 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  .desktop-logo {
+    padding: 2em;
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 20px;
+
+    p {
+      color: red;
+    }
+
+    mat-icon {
+      width: 200px;
+    }
+  }
+
+  .tablet-logo {
+    padding: 1em;
+    p {
+      display: none;
+    }
+  }
+
+
+  .desktop {
+    background: green;
+    mat-icon {
+      margin-right: 1em;
+    }
+  }
+
+  .tablet {
+    background: red;
+
+    mat-icon {
+      margin-right: 0;
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+.sidenav .mat-toolbar {
+  background: grey;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
