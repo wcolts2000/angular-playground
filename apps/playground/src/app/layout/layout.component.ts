@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -11,7 +11,6 @@ import { map, shareReplay } from 'rxjs/operators';
 export class LayoutComponent {
   expandedMode = true;
   autosize: boolean | undefined;
-  // @ViewChild('logoContainer') logoContainer: ElementRef
 
   isSmall$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.XSmall)
     .pipe(
@@ -34,7 +33,7 @@ export class LayoutComponent {
 
   toggleExpandedMode() {
     this.autosize = true;
-    setTimeout(() => this.autosize = undefined, 500)
+    setTimeout(() => this.autosize = undefined, 500) // warning about autosize attribute here: https://material.angular.io/components/sidenav/api#MatDrawerContainer
     return this.expandedMode = !this.expandedMode;
   }
 

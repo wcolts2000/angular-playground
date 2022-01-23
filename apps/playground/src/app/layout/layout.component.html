@@ -8,8 +8,8 @@
       <p>design guru</p>
     </div>
 
-    <mat-nav-list #navList>
-      <a mat-list-item href="#" [ngClass]="[(isMedium$ | async) ? 'medium': 'desktop', expandedMode ? 'expanded':'']">
+    <mat-nav-list #navList id="sidenav-list" [ngClass]="[(isMedium$ | async) ? 'medium' : 'desktop', expandedMode ? 'expanded':'']">
+      <a mat-list-item href="#" class="active" [ngClass]="[(isMedium$ | async) ? 'medium' : 'desktop', expandedMode ? 'expanded':'']">
         <mat-icon color="primary">face</mat-icon>
         <span>link 1</span>
       </a>

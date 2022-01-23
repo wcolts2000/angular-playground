@@ -3,18 +3,46 @@
 }
 
 .sidenav {
+  background: black;
+  
+  #sidenav-list {
+    padding-left: 2.5em;
+
+    &.medium {
+      padding-left: 1.5em;
+    }
+
+
+    &.expanded {
+      padding-left: 2.5em;
+    }
+    
+    a {
+      color: white;
+      margin-bottom: 1.5em;
+      padding: .25em;
+      border-radius: 30px 0 0 30px;
+
+      &.active {
+        background: linear-gradient(to right, orangered, orange);
+      } 
+    }
+  }
+  
   .desktop-logo {
     padding: 2em;
     text-align: center;
     margin-bottom: 1em;
     font-size: 20px;
-
+    
     p {
-      color: red;
+      margin: 1.5em 0;
+      color: white;
     }
 
     mat-icon {
       width: 200px;
+      font-size: 6em;
     }
   }
 
@@ -23,24 +51,39 @@
     p {
       display: none;
     }
+
+    mat-icon {
+      padding: 15px;
+      font-size: 2em;
+    }
+
     &.expanded {
       padding: 2em;
+      text-align: center;
+      margin-bottom: 1em;
+      
       p {
-        display: contents;
+        color: white;
+        font-size: 20px;
+        margin: 1.5em 0;
+        display: block;
+      }
+
+      mat-icon {
+        width: 200px;
+        font-size: 6em;
       }
     }
   }
 
 
   .desktop {
-    background: green;
     mat-icon {
       margin-right: 1em;
     }
   }
 
   .medium {
-    background: red;
 
     mat-icon {
       margin-right: 0;
@@ -51,19 +94,14 @@
     }
 
     &.expanded {
-      background: green;
-    mat-icon {
-      margin-right: 1em;
-    }
-    span {
-      display: contents;
-    }
+      mat-icon {
+        margin-right: 1em;
+      }
+      span {
+        display: contents;
+      }
     }
   }
-}
-
-.sidenav .mat-toolbar {
-  background: grey;
 }
 
 .mat-toolbar.mat-primary {
