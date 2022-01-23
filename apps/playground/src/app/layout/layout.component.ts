@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -9,21 +9,33 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
+  expandedMode = true;
+  autosize: boolean | undefined;
+  // @ViewChild('logoContainer') logoContainer: ElementRef
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isSmall$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.XSmall)
     .pipe(
-      map(result => result.matches),
+      map(result => {
+        this.expandedMode = false;
+        return result.matches}),
       shareReplay()
     );
 
-  isTablet$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Tablet)
+  isMedium$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Small)
     .pipe(
       map(
-        result => result.matches
-      ),
+        result => {
+          this.expandedMode = false;
+          return result.matches}),
       shareReplay()
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  toggleExpandedMode() {
+    this.autosize = true;
+    setTimeout(() => this.autosize = undefined, 500)
+    return this.expandedMode = !this.expandedMode;
+  }
 
 }

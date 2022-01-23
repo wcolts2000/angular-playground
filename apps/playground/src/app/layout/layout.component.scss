@@ -18,10 +18,16 @@
     }
   }
 
-  .tablet-logo {
+  .medium-logo {
     padding: 1em;
     p {
       display: none;
+    }
+    &.expanded {
+      padding: 2em;
+      p {
+        display: contents;
+      }
     }
   }
 
@@ -33,7 +39,7 @@
     }
   }
 
-  .tablet {
+  .medium {
     background: red;
 
     mat-icon {
@@ -42,6 +48,16 @@
 
     span {
       display: none;
+    }
+
+    &.expanded {
+      background: green;
+    mat-icon {
+      margin-right: 1em;
+    }
+    span {
+      display: contents;
+    }
     }
   }
 }

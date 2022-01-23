@@ -1,16 +1,29 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container"  [autosize]="autosize">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-<!--    <mat-toolbar>Menu</mat-toolbar>-->
-    <div (click)="drawer.toggle()" [ngClass]="(isTablet$ | async) ? 'tablet-logo' : 'desktop-logo'"><mat-icon color="primary">delete</mat-icon><p>design guru</p></div>
-    <mat-nav-list>
-      <a mat-list-item href="#" [ngClass]="(isTablet$ | async) ? 'tablet': 'desktop'"><mat-icon color="primary">face</mat-icon><span>link 1</span></a>
-      <a mat-list-item href="#" [ngClass]="(isTablet$ | async) ? 'tablet': 'desktop'"><mat-icon color="primary">face</mat-icon><span>link 2</span></a>
-      <a mat-list-item href="#" [ngClass]="(isTablet$ | async) ? 'tablet': 'desktop'"><mat-icon color="primary">face</mat-icon><span>link 3</span></a>
+      [attr.role]="(isSmall$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isSmall$ | async) ? 'over' : 'side'"
+      [opened]="(isSmall$ | async) === false">
+    <div #logoContainer (click)="toggleExpandedMode()" [ngClass]="[(isMedium$ | async) ? 'medium-logo' : 'desktop-logo', expandedMode ? 'expanded':'']">
+      <mat-icon color="primary">delete</mat-icon>
+      <p>design guru</p>
+    </div>
+
+    <mat-nav-list #navList>
+      <a mat-list-item href="#" [ngClass]="[(isMedium$ | async) ? 'medium': 'desktop', expandedMode ? 'expanded':'']">
+        <mat-icon color="primary">face</mat-icon>
+        <span>link 1</span>
+      </a>
+      <a mat-list-item href="#" [ngClass]="[(isMedium$ | async) ? 'medium': 'desktop', expandedMode ? 'expanded':'']">
+        <mat-icon color="primary">face</mat-icon>
+        <span>link 2</span>
+      </a>
+      <a mat-list-item href="#" [ngClass]="[(isMedium$ | async) ? 'medium': 'desktop', expandedMode ? 'expanded':'']">
+        <mat-icon color="primary">face</mat-icon>
+        <span>link 3</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
@@ -18,11 +31,13 @@
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        *ngIf="isSmall$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>playground</span>
     </mat-toolbar>
     <!-- Add Content Here -->
+    <p>Hello</p>
+    <main><h1>title</h1></main>
   </mat-sidenav-content>
 </mat-sidenav-container>
