@@ -1,23 +1,63 @@
-<mat-sidenav-container class="sidenav-container"  [autosize]="autosize">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isSmall$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isSmall$ | async) ? 'over' : 'side'"
-      [opened]="(isSmall$ | async) === false">
-    <div #logoContainer (click)="toggleExpandedMode()" [ngClass]="[(isMedium$ | async) ? 'medium-logo' : 'desktop-logo', expandedMode ? 'expanded':'']">
+<mat-sidenav-container class="sidenav-container" [autosize]="autosize">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isSmall$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isSmall$ | async) ? 'over' : 'side'"
+    [opened]="(isSmall$ | async) === false"
+  >
+    <div
+      #logoContainer
+      (click)="toggleExpandedMode()"
+      [ngClass]="[
+        (isMedium$ | async) ? 'medium-logo' : 'desktop-logo',
+        expandedMode ? 'expanded' : ''
+      ]"
+    >
       <mat-icon color="primary">delete</mat-icon>
-      <p>design guru</p>
+      <p>company logo</p>
     </div>
 
-    <mat-nav-list #navList id="sidenav-list" [ngClass]="[(isMedium$ | async) ? 'medium' : 'desktop', expandedMode ? 'expanded':'']">
-      <a mat-list-item href="#" class="active" [ngClass]="[(isMedium$ | async) ? 'medium' : 'desktop', expandedMode ? 'expanded':'']">
+    <mat-nav-list
+      #navList
+      id="sidenav-list"
+      [ngClass]="[
+        (isMedium$ | async) ? 'medium' : 'desktop',
+        expandedMode ? 'expanded' : ''
+      ]"
+    >
+      <a
+        mat-list-item
+        href="#"
+        class="active"
+        [ngClass]="[
+          (isMedium$ | async) ? 'medium' : 'desktop',
+          expandedMode ? 'expanded' : ''
+        ]"
+      >
         <mat-icon color="primary">face</mat-icon>
         <span>link 1</span>
       </a>
-      <a mat-list-item href="#" [ngClass]="[(isMedium$ | async) ? 'medium': 'desktop', expandedMode ? 'expanded':'']">
+      <a
+        mat-list-item
+        href="#"
+        [ngClass]="[
+          (isMedium$ | async) ? 'medium' : 'desktop',
+          expandedMode ? 'expanded' : ''
+        ]"
+      >
         <mat-icon color="primary">face</mat-icon>
         <span>link 2</span>
       </a>
-      <a mat-list-item href="#" [ngClass]="[(isMedium$ | async) ? 'medium': 'desktop', expandedMode ? 'expanded':'']">
+      <a
+        mat-list-item
+        href="#"
+        [ngClass]="[
+          (isMedium$ | async) ? 'medium' : 'desktop',
+          expandedMode ? 'expanded' : ''
+        ]"
+      >
         <mat-icon color="primary">face</mat-icon>
         <span>link 3</span>
       </a>
@@ -31,7 +71,8 @@
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isSmall$ | async">
+        *ngIf="isSmall$ | async"
+      >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>playground</span>
