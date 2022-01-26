@@ -44,6 +44,21 @@
       width: 200px;
       font-size: 6em;
     }
+
+    &.expanded {
+      padding: 1em;
+      p {
+        display: none;
+      }
+  
+      mat-icon {
+        width: fit-content;
+        padding: 15px;
+        font-size: 2em;
+      }
+    }
+
+    
   }
 
   .medium-logo {
@@ -76,10 +91,21 @@
     }
   }
 
-
   .desktop {
     mat-icon {
       margin-right: 1em;
+    }
+
+    &.expanded {
+      
+      
+      mat-icon {
+        margin-right: 0;
+      }
+      span {
+        display: none;
+      }
+
     }
   }
 
@@ -98,7 +124,7 @@
         margin-right: 1em;
       }
       span {
-        display: contents;
+        display: block;
       }
     }
   }
